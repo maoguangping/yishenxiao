@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>sysLogin</title>
+    <link rel="stylesheet" href="./statics/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./statics/css/login/login.css">
+    <link rel="stylesheet" href="./statics/css/commons/commons.css">
+    <script src="./statics/js/jquery/jquery.min.js"></script>
+    <script src="./statics/js/bootstrap/bootstrap.min.js"></script>
+    <script src="./statics/js/vue/vue.min.js"></script>
+</head>
+<body class="hold-transition login-page loginbody"> 
+  <div style="width:728px;height:90px;margin:0 auto;">
+    <!-- <script src="http://www.cssmoban.com/include/new/ggad_728x90.js"></script> -->
+  </div>
+  <div class="page-container col-md-offset-5" id="logintop">
+    <div class="col-md-offset-1">
+      <h3 class="text-primary logintitle">动漫系统</h3>
+    </div>
+    <div class="col-md-offset-1">
+      <img src="./statics/imgs/login/logintitle.jpg" alt="标示" class="img-circle logintitleimg">
+    </div>
+    <br/>
+    <div v-show="errorinfo" class="input-group" style="width: 100%;margin: auto;margin-bottom:12px;">
+        {{errorMsg}}
+    </div>
+	<form class="form-horizontal" role="form">
+		<div class="form-group has-feedback">
+		   <div class="row col-sm-4">		     		     	     
+		     <input type="text" class="form-control" v-model="loginusername" @keyup.enter="login()" id="loginname" placeholder="账号">		     	
+		     <span class="glyphicon glyphicon-user form-control-feedback"></span>
+		   </div>		  	
+		</div>
+		<div class="form-group has-feedback">
+		   <div class="row col-sm-4">
+			 <input type="text" class="form-control" v-model="loginpassword" @keyup.enter="login()" id="loginpassword" placeholder="密码">
+			 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+		   </div>
+		</div>
+		<div class="form-group has-feedback">
+		  <div class="row col-sm-2">
+            <input type="text" class="form-control" v-model="logincaptcha" @keyup.enter="login()" placeholder="验证码">
+            <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>          
+          </div>     
+          <div class="col-sm-2">
+            &nbsp;&nbsp;&nbsp;
+            <img alt="请刷新！" id="srccaptcha" :src="loginimgsrc" @click="refreshCode()"/>
+          </div>
+        </div>
+		<div class="text">
+		  <small><a href="#">Forgot password ?</a></small>
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <small><a href="#">Sign Up</a></small>
+		</div>
+		<br/>
+		<div class="btn-group">
+		  <button type="button" id="loginbutton" class="btn btn-success btn-sm loginbtn" @click="login">登录</button>		  
+		  <button type="reset" class="btn btn-warning btn-sm resetbtn">重置</button>
+		</div>
+	</form>
+  </div>
+  <script src="./statics/js/login/login.js"></script>
+</body>
+</html>

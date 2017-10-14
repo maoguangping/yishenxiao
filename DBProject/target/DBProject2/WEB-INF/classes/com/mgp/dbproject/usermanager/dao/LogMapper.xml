@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mgp.dbproject.usermanager.dao.LogMapper" >
+  <resultMap id="BaseResultMap" type="com.mgp.dbproject.usermanager.beans.Log" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="userId" property="userid" jdbcType="BIGINT" />
+    <result column="operateType" property="operatetype" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="operateModel" property="operatemodel" jdbcType="VARCHAR" />
+    <result column="operateDesc" property="operatedesc" jdbcType="VARCHAR" />
+    <result column="operateIP" property="operateip" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userId, operateType, createTime, operateModel, operateDesc, operateIP
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_sys_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mgp.dbproject.usermanager.beans.Log" >
+    insert into t_sys_log (id, userId, operateType, 
+      createTime, operateModel, operateDesc, 
+      operateIP)
+    values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, #{operatetype,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{operatemodel,jdbcType=VARCHAR}, #{operatedesc,jdbcType=VARCHAR}, 
+      #{operateip,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mgp.dbproject.usermanager.beans.Log" >
+    insert into t_sys_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="operatetype != null" >
+        operateType,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="operatemodel != null" >
+        operateModel,
+      </if>
+      <if test="operatedesc != null" >
+        operateDesc,
+      </if>
+      <if test="operateip != null" >
+        operateIP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="operatetype != null" >
+        #{operatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatemodel != null" >
+        #{operatemodel,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedesc != null" >
+        #{operatedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operateip != null" >
+        #{operateip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mgp.dbproject.usermanager.beans.Log" >
+    update t_sys_log
+    <set >
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="operatetype != null" >
+        operateType = #{operatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatemodel != null" >
+        operateModel = #{operatemodel,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedesc != null" >
+        operateDesc = #{operatedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operateip != null" >
+        operateIP = #{operateip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mgp.dbproject.usermanager.beans.Log" >
+    update t_sys_log
+    set userId = #{userid,jdbcType=BIGINT},
+      operateType = #{operatetype,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      operateModel = #{operatemodel,jdbcType=VARCHAR},
+      operateDesc = #{operatedesc,jdbcType=VARCHAR},
+      operateIP = #{operateip,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

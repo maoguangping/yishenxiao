@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mgp.dbproject.usermanager.dao.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.mgp.dbproject.usermanager.beans.Menu" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="menuParentId" property="menuparentid" jdbcType="BIGINT" />
+    <result column="menuName" property="menuname" jdbcType="VARCHAR" />
+    <result column="menuURL" property="menuurl" jdbcType="VARCHAR" />
+    <result column="menuDesc" property="menudesc" jdbcType="VARCHAR" />
+    <result column="menuType" property="menutype" jdbcType="VARCHAR" />
+    <result column="menuIcon" property="menuicon" jdbcType="VARCHAR" />
+    <result column="menuPerms" property="menuperms" jdbcType="VARCHAR" />
+    <result column="menuSortNumber" property="menusortnumber" jdbcType="INTEGER" />
+    <result column="menuCreateTime" property="menucreatetime" jdbcType="TIMESTAMP" />
+    <result column="menuModifiedTime" property="menumodifiedtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, menuParentId, menuName, menuURL, menuDesc, menuType, menuIcon, menuPerms, menuSortNumber, 
+    menuCreateTime, menuModifiedTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_menu
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_sys_menu
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mgp.dbproject.usermanager.beans.Menu" >
+    insert into t_sys_menu (id, menuParentId, menuName, 
+      menuURL, menuDesc, menuType, 
+      menuIcon, menuPerms, menuSortNumber, 
+      menuCreateTime, menuModifiedTime)
+    values (#{id,jdbcType=BIGINT}, #{menuparentid,jdbcType=BIGINT}, #{menuname,jdbcType=VARCHAR}, 
+      #{menuurl,jdbcType=VARCHAR}, #{menudesc,jdbcType=VARCHAR}, #{menutype,jdbcType=VARCHAR}, 
+      #{menuicon,jdbcType=VARCHAR}, #{menuperms,jdbcType=VARCHAR}, #{menusortnumber,jdbcType=INTEGER}, 
+      #{menucreatetime,jdbcType=TIMESTAMP}, #{menumodifiedtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mgp.dbproject.usermanager.beans.Menu" >
+    insert into t_sys_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="menuparentid != null" >
+        menuParentId,
+      </if>
+      <if test="menuname != null" >
+        menuName,
+      </if>
+      <if test="menuurl != null" >
+        menuURL,
+      </if>
+      <if test="menudesc != null" >
+        menuDesc,
+      </if>
+      <if test="menutype != null" >
+        menuType,
+      </if>
+      <if test="menuicon != null" >
+        menuIcon,
+      </if>
+      <if test="menuperms != null" >
+        menuPerms,
+      </if>
+      <if test="menusortnumber != null" >
+        menuSortNumber,
+      </if>
+      <if test="menucreatetime != null" >
+        menuCreateTime,
+      </if>
+      <if test="menumodifiedtime != null" >
+        menuModifiedTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="menuparentid != null" >
+        #{menuparentid,jdbcType=BIGINT},
+      </if>
+      <if test="menuname != null" >
+        #{menuname,jdbcType=VARCHAR},
+      </if>
+      <if test="menuurl != null" >
+        #{menuurl,jdbcType=VARCHAR},
+      </if>
+      <if test="menudesc != null" >
+        #{menudesc,jdbcType=VARCHAR},
+      </if>
+      <if test="menutype != null" >
+        #{menutype,jdbcType=VARCHAR},
+      </if>
+      <if test="menuicon != null" >
+        #{menuicon,jdbcType=VARCHAR},
+      </if>
+      <if test="menuperms != null" >
+        #{menuperms,jdbcType=VARCHAR},
+      </if>
+      <if test="menusortnumber != null" >
+        #{menusortnumber,jdbcType=INTEGER},
+      </if>
+      <if test="menucreatetime != null" >
+        #{menucreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menumodifiedtime != null" >
+        #{menumodifiedtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mgp.dbproject.usermanager.beans.Menu" >
+    update t_sys_menu
+    <set >
+      <if test="menuparentid != null" >
+        menuParentId = #{menuparentid,jdbcType=BIGINT},
+      </if>
+      <if test="menuname != null" >
+        menuName = #{menuname,jdbcType=VARCHAR},
+      </if>
+      <if test="menuurl != null" >
+        menuURL = #{menuurl,jdbcType=VARCHAR},
+      </if>
+      <if test="menudesc != null" >
+        menuDesc = #{menudesc,jdbcType=VARCHAR},
+      </if>
+      <if test="menutype != null" >
+        menuType = #{menutype,jdbcType=VARCHAR},
+      </if>
+      <if test="menuicon != null" >
+        menuIcon = #{menuicon,jdbcType=VARCHAR},
+      </if>
+      <if test="menuperms != null" >
+        menuPerms = #{menuperms,jdbcType=VARCHAR},
+      </if>
+      <if test="menusortnumber != null" >
+        menuSortNumber = #{menusortnumber,jdbcType=INTEGER},
+      </if>
+      <if test="menucreatetime != null" >
+        menuCreateTime = #{menucreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menumodifiedtime != null" >
+        menuModifiedTime = #{menumodifiedtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mgp.dbproject.usermanager.beans.Menu" >
+    update t_sys_menu
+    set menuParentId = #{menuparentid,jdbcType=BIGINT},
+      menuName = #{menuname,jdbcType=VARCHAR},
+      menuURL = #{menuurl,jdbcType=VARCHAR},
+      menuDesc = #{menudesc,jdbcType=VARCHAR},
+      menuType = #{menutype,jdbcType=VARCHAR},
+      menuIcon = #{menuicon,jdbcType=VARCHAR},
+      menuPerms = #{menuperms,jdbcType=VARCHAR},
+      menuSortNumber = #{menusortnumber,jdbcType=INTEGER},
+      menuCreateTime = #{menucreatetime,jdbcType=TIMESTAMP},
+      menuModifiedTime = #{menumodifiedtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

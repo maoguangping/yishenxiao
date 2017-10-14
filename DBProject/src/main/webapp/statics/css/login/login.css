@@ -1,0 +1,36 @@
+.logininput{
+  width:100;
+  height:30;
+}
+
+.logintitleimg{
+	width:70px;
+	heigth:70px;
+}
+
+.topdiv{
+	border-style:ridge;
+}
+
+.divform{
+	width:30;
+	height:60;
+	padding:10;
+	margin:10;
+}
+
+.loginbody{
+	background:url(../../imgs/login/loginbg.jpg) no-repeat;
+}
+
+.logintitle{
+	font-family:'楷体';
+}
+
+.loginbtn{
+	width:150px;
+}
+
+.resetbtn{
+	width:40px;
+}

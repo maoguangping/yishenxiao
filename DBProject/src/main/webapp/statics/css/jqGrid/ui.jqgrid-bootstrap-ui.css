@@ -1,0 +1,113 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 16, 2015, 10:24:01 AM
+    Author     : tony
+*/
+
+
+/* jqgrid  jqGridPager_left*/
+/*#pg_jqGridPager{*/
+    /*background-color: red;*/
+/*}*/
+
+/*#add_jqGrid{*/
+    /*color: white;*/
+    /*background-color: darkred;*/
+    /*height: 25px;*/
+    /*-moz-border-radius: 3px;   !* Gecko browsers *!*/
+    /*-webkit-border-radius: 3px; !* Webkit browsers *!*/
+    /*border-radius: 3px;!* W3C syntax *!*/
+/*}*/
+
+.ui-jqgrid-title{
+	line-height:37px;
+	margin-left:9px;
+}
+.jqgrid-rownum {background-color:white; }
+
+.HeaderButton{
+    display: none;
+}
+.ui-jqgrid-caption{
+    background-color: whitesmoke;
+}
+.table>tbody>tr>td.active{
+	background-color: white;
+}
+
+#refresh_jqRole:hover,#refresh_jqLimit:hover,#refresh_jqUserManager:hover,#search_jqUserManager:hover{
+    background-color: brown;
+    color: white;
+    height: 25px;
+    -moz-border-radius: 3px;   /* Gecko browsers */
+    -webkit-border-radius: 3px; /* Webkit browsers */
+    border-radius: 3px;/* W3C syntax */
+}
+#refresh_jqRole span,#refresh_jqLimit span,#refresh_jqUserManager span,#refresh_jqUserManager span{
+    margin-top: 2px;
+}
+
+
+/*input_jqRolePager ui-pg-input form-control*/
+
+#jqRolePager_right,#jqLimitPager_right,#jqUserManagerPager_right,#jqLogPager_right{
+   text-align: right;
+}
+
+
+
+/*orginal jqSgList*/
+/* #gview_jqSgList table th{
+	text-align:center;
+}
+ */
+
+
+/*#search_jqGrid{*/
+    /*color: white;*/
+    /*background-color: lightblue;*/
+    /*height: 25px;*/
+    /*-moz-border-radius: 3px;   !* Gecko browsers *!*/
+    /*-webkit-border-radius: 3px; !* Webkit browsers *!*/
+    /*border-radius: 3px;!* W3C syntax *!*/
+    /*margin-right: 5px;*/
+/*}*/
+/*#refresh_jqGrid{*/
+    /*color: white;*/
+    /*background-color: green;*/
+    /*!*height: 25px;*!*/
+    /*-moz-border-radius: 3px;   !* Gecko browsers *!*/
+    /*-webkit-border-radius: 3px; !* Webkit browsers *!*/
+    /*border-radius: 3px;!* W3C syntax *!*/
+    /*margin-left: 15px;*/
+/*}*/
+
+.ui-jqgrid {
+    margin: 0 auto;
+}
+/*wangwei 20117-3-7修改单行太长添加省略号 text-overflow: ellipsis; */
+.ui-jqgrid tr.jqgrow td { height: 26px; text-overflow: ellipsis;}
+.ui-jqgrid .ui-pg-input,.ui-jqgrid .ui-jqgrid-toppager .ui-pg-input { height:20px }
+.ui-state-hover
+{
+    border: .15em solid;
+	border-color: inherit;
+
+}
+.ui-jqdialog .ui-jqdialog-titlebar  {
+	height:29px;
+	border-color: inherit;
+}
+
+.ui-jqdialog-content input.FormElement {
+    padding: 0.25em;
+}
+
+.fm-button {
+    height:30px;
+}
+#nData, #pData { height:20px; width:18px; }
