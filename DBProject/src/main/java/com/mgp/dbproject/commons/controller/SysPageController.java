@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 系统页面视图
  * 
- * @author 毛广平
+ * @author 毛广平 b1
  * @date 2017年07月24日
  */
 @Controller
